@@ -46,6 +46,8 @@ if arg == "INSTALL":
             
         ovfiles = [[prop_name, "WEB-INF/classes"]]
         if os.path.exists("logback.xml"): ovfiles.append(["logback.xml", "WEB-INF/classes"])
+        if not os.path.exists("create_triggers.sql"): os.mknod("create_triggers.sql")
+        ovfiles.append(["create_triggers.sql", "WEB-INF/classes/META-INF/sql"])
         actions.deploy(deploymentorder=100, files=ovfiles, jmsTopicConnectionFactory=icatProperties.get("jms.topicConnectionFactory"), target=props.get("db.target"), logging=props.get("db.logging"))
         
         if not os.path.isdir(binDir): abort ("Please create directory " + binDir + " and try again.")

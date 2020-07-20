@@ -13,12 +13,11 @@
 			<property name="eclipselink.logging.level" value="OFF" />
 			<property name="eclipselink.logging.level.sql" value="OFF" />
 			<property name="eclipselink.logging.parameters" value="false" />
-			<property name="eclipselink.ddl-generation" value="create-tables" />
-			<property name="eclipselink.ddl-generation.output_mode"
-				value="both" />
-			<property name="eclipselink.deploy-on-startup" value="true" />
-			<property name="eclipselink.target-server" value="Glassfish" />
-			<property name="eclipselink.target-database" value="Auto" />
+			<property name="javax.persistence.schema-generation.database.action" value="create" />
+			<property name="javax.persistence.schema-generation.scripts.action" value="create" />
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="create.ddl" />
+			<property name="javax.persistence.schema-generation.create-source" value="metadata-then-script" />
+			<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/sql/create_triggers.sql" />
 		</properties>
 	</persistence-unit>
 
